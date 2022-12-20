@@ -142,8 +142,8 @@ expand <- function(x, start_var = index_var(x), end_var = NULL,
 
     dura_var <- dur_var(x)
 
+    x <- x[get(dura_var) < 0, c(dura_var) := as.difftime(0, units = time_unit)]
     x <- x[, c(end_var) := re_time(get(start_var) + get(dura_var), interval)]
-    x <- x[get(end_var) < 0, c(end_var) := as.difftime(0, units = time_unit)]
   }
 
   assert_that(has_time_cols(x, c(start_var, end_var), 2L),
