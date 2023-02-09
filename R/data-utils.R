@@ -344,7 +344,7 @@ order_rename <- function(x, id_var, st_var, ed_var) {
   as_id_tbl(x, id_var[1L], by_ref = TRUE)
 }
 
-as_dt_min <- function(x, y) round(difftime(x, y, units = "mins"))
+as_dt_min <- function(x, y) floor(difftime(x, y, units = "mins"))
 
 #' @param id_var Type of ID all returned times are relative to
 #' @param win_var Type of ID for which the in/out times is returned
