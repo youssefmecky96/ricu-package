@@ -9654,8 +9654,8 @@
             "name": "RefID",
             "spec": "col_integer"
           },
-          "customfieldid": {
-            "name": "CustomFieldID",
+          "fieldid": {
+            "name": "FieldID",
             "spec": "col_integer"
           }
         }
