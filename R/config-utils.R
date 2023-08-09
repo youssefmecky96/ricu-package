@@ -391,7 +391,7 @@ tbl_callback <- function(x){
   x <- as_tbl_cfg(x)
   assert_that(length(x) == 1L)
   
-  if ("callback" %in% vctrs::fields(x)) {
+  if (!(list(NULL) %in% vctrs::field(x,"callback"))) {
     str_to_fun(vctrs::field(x, "callback"))
   } else {
     identity_callback
