@@ -245,7 +245,7 @@ split_write <- function(x, part_fun, dir, chunk_no, prog, nme, tick) {
   invisible(NULL)
 }
 
-partition_table <- function(x, dir, progress = NULL, chunk_length = 10 ^ 7,
+partition_table <- function(x, dir, progress = NULL, chunk_length = 10 ^ 5,
                             ...) {
 
   tempdir <- ensure_dirs(tempfile())
