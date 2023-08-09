@@ -9419,7 +9419,7 @@
   },
   {
     "name": "sic",
-    "url": "https://physionet.org/content/sicdb/1.0.5/",
+    "url": "https://physionet.org/files/sicdb/1.0.6/",
     "id_cfg": {
       "patient": {
         "id": "patientid",
