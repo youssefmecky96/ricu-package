@@ -390,7 +390,7 @@ partition_col <- function(x, orig_names = FALSE) {
 tbl_callback <- function(x){
   x <- as_tbl_cfg(x)
   assert_that(length(x) == 1L)
-  
+  #suggested change !is.null(vctrs::field(x, "callback")[[1]])
   if (!(list(NULL) %in% vctrs::field(x,"callback"))) {
     str_to_fun(vctrs::field(x, "callback"))
   } else {
