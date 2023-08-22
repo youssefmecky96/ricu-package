@@ -387,16 +387,19 @@ partition_col <- function(x, orig_names = FALSE) {
   col
 }
 
-tbl_callback <- function(x){
+tbl_callback <- function(x) {
   x <- as_tbl_cfg(x)
+
   assert_that(length(x) == 1L)
-  #suggested change !is.null(vctrs::field(x, "callback")[[1]])
+
+  # Return identity_callback if "callback" isn't in the names of x or if it's NULL
   if (!("callback" %in% names(x)) || is.null(vctrs::field(x, "callback")[[1]])) {
     return(identity_callback)
   }
 
   # If we've reached this point, "callback" exists and is not NULL
   return(str_to_fun(vctrs::field(x, "callback")))
+}
 
 #' @export
 n_tick.tbl_cfg <- function(x) {
