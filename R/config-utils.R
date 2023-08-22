@@ -391,12 +391,12 @@ tbl_callback <- function(x){
   x <- as_tbl_cfg(x)
   assert_that(length(x) == 1L)
   #suggested change !is.null(vctrs::field(x, "callback")[[1]])
-  if (!(list(NULL) %in% vctrs::field(x,"callback"))) {
-    str_to_fun(vctrs::field(x, "callback"))
-  } else {
-    identity_callback
+  if (!("callback" %in% names(x)) || is.null(vctrs::field(x, "callback")[[1]])) {
+    return(identity_callback)
   }
-}
+
+  # If we've reached this point, "callback" exists and is not NULL
+  return(str_to_fun(vctrs::field(x, "callback")))
 
 #' @export
 n_tick.tbl_cfg <- function(x) {
